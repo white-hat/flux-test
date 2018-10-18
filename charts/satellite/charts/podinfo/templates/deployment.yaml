@@ -3,7 +3,7 @@ kind: Deployment
 metadata:
   name: {{ .Release.Name }}
   labels:
-    app: {{ template "podinfo.name" . }}
+    app: podinfo
     chart: {{ template "podinfo.chart" . }}
     release: {{ .Release.Name }}
     heritage: {{ .Release.Service }}
@@ -11,18 +11,18 @@ spec:
   replicas: {{ .Values.replicaCount }}
   selector:
     matchLabels:
-      app: {{ template "podinfo.name" . }}
+      app: podinfo
       release: {{ .Release.Name }}
   template:
     metadata:
       labels:
-        app: {{ template "podinfo.name" . }}
+        app: podinfo
         release: {{ .Release.Name }}
       annotations:
         prometheus.io/scrape: 'true'
     spec:
       containers:
-        - name: {{ .Chart.Name }}
+        - name: podinfo
           image: "{{ .Values.image }}"
           imagePullPolicy: {{ .Values.imagePullPolicy }}
           command:
