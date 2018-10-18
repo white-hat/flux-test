@@ -1,19 +1,10 @@
 # Default values for podinfo.
 
-replicaCount: 2
-logLevel: info
-color: blue
-backend: #http://backend-podinfo:9898/echo
-message: #UI greetings
+replicaCount: 1
+backend: http://backend-podinfo:9898/echo
 
-faults:
-  delay: false
-  error: false
-
-image:
-  repository: whitehat/k8s-podinfo
-  tag: v1.0.0
-  pullPolicy: IfNotPresent
+image: whitehat/k8s-podinfo:v1.0.0
+imagePullPolicy: IfNotPresent
 
 service:
   type: ClusterIP
@@ -21,7 +12,7 @@ service:
   containerPort: 9898
   nodePort: 31198
 
-# metrics-server add-on required
+# Heapster or metrics-server add-on required
 hpa:
   enabled: false
   maxReplicas: 10
@@ -48,7 +39,7 @@ ingress:
 resources:
   limits:
   requests:
-    cpu: 1m
+    cpu: 10m
     memory: 16Mi
 
 nodeSelector: {}
@@ -56,3 +47,5 @@ nodeSelector: {}
 tolerations: []
 
 affinity: {}
+
+logLevel: debug
