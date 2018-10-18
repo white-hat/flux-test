@@ -1,7 +1,7 @@
 apiVersion: apps/v1beta2
 kind: Deployment
 metadata:
-  name: podinfo
+  name: {{ .Values.global.test }}
   labels:
     app: podinfo
     chart: {{ template "podinfo.chart" . }}
