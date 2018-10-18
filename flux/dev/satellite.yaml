@@ -12,7 +12,7 @@ spec:
   releaseName: satellite-dev
   values:
     podinfo:
-      image: whitehat/k8s-podinfo:dev-v1.0.1
+      image: whitehat/k8s-podinfo:dev
       replicaCount: 1
       hpa:
         enabled: false
