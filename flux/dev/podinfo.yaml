@@ -12,7 +12,7 @@ spec:
   releaseName: podinfo-dev
   values:
     podinfo:
-      image: whitehat/k8s-podinfo:v1.0.0
+      image: whitehat/k8s-podinfo:dev
       replicaCount: 1
       hpa:
         enabled: false
