@@ -3,7 +3,9 @@
 replicaCount: 1
 backend: http://backend-podinfo:9898/echo
 
-image: whitehat/k8s-podinfo:v1.0.0
+image:
+  repo: whitehat/k8s-podinfo
+  tag: v1.0.0
 imagePullPolicy: IfNotPresent
 
 service:

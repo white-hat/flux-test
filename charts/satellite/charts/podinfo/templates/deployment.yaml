@@ -23,7 +23,7 @@ spec:
     spec:
       containers:
         - name: podinfo
-          image: "{{ .Values.image }}"
+          image: "{{ .Values.image.repo }}:{{ .Values.image.tag }}"
           imagePullPolicy: {{ .Values.imagePullPolicy }}
           command:
             - ./podinfo
