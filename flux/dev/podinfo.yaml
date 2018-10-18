@@ -1,0 +1,18 @@
+---
+apiVersion: helm.integrations.flux.weave.works/v1alpha2
+kind: FluxHelmRelease
+metadata:
+  name: podinfo-dev
+  namespace: podinfo
+  annotations:
+    flux.weave.works/automated: "true"
+    flux.weave.works/tag.podinfo: glob:dev*
+spec:
+  chartGitPath: podinfo
+  releaseName: podinfo-dev
+  values:
+    podinfo:
+      image: whitehat/k8s-podinfo:dev
+      replicaCount: 1
+      hpa:
+        enabled: false
