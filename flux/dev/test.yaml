@@ -1,0 +1,15 @@
+---
+apiVersion: helm.integrations.flux.weave.works/v1alpha2
+kind: FluxHelmRelease
+metadata:
+  name: test
+  namespace: test-dev
+  annotations:
+    flux.weave.works/automated: "true"
+    flux.weave.works/tag.test: semver:~1-dev
+spec:
+  chartGitPath: test
+  releaseName: test-dev
+  values:
+    test:
+      image: whitehat/http-echo:v1.0.0-dev

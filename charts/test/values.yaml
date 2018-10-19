@@ -1,0 +1,21 @@
+
+image: whitehat/http-echo:v1.0.0
+imagePullPolicy: Always
+
+service:
+  type: ClusterIP
+  externalPort: 5678
+  containerPort: 5678
+  nodePort: 31198
+
+resources:
+  limits:
+  requests:
+    cpu: 10m
+    memory: 16Mi
+
+nodeSelector: {}
+
+tolerations: []
+
+affinity: {}

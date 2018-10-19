@@ -1,0 +1,43 @@
+apiVersion: apps/v1beta2
+kind: Deployment
+metadata:
+  name: test
+  labels:
+    app: test
+    release: {{ .Release.Name }}
+    heritage: {{ .Release.Service }}
+spec:
+  selector:
+    matchLabels:
+      app: test
+      release: {{ .Release.Name }}
+  template:
+    metadata:
+      labels:
+        app: test
+        release: {{ .Release.Name }}
+    spec:
+      containers:
+        - name: test
+          image: "{{ .Values.image }}"
+          imagePullPolicy: {{ .Values.imagePullPolicy }}
+          args:
+            - '-text="hello world"'
+          ports:
+            - name: http
+              containerPort: {{ .Values.service.containerPort }}
+              protocol: TCP
+          resources:
+{{ toYaml .Values.resources | indent 12 }}
+    {{- with .Values.nodeSelector }}
+      nodeSelector:
+{{ toYaml . | indent 8 }}
+    {{- end }}
+    {{- with .Values.affinity }}
+      affinity:
+{{ toYaml . | indent 8 }}
+    {{- end }}
+    {{- with .Values.tolerations }}
+      tolerations:
+{{ toYaml . | indent 8 }}
+    {{- end }}

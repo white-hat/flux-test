@@ -3,8 +3,8 @@ kind: Service
 metadata:
   name: {{ .Release.Name }}
   labels:
-    app: {{ template "podinfo.name" . }}
-    chart: {{ template "podinfo.chart" . }}
+    app: test
+    chart: test
     release: {{ .Release.Name }}
     heritage: {{ .Release.Service }}
 spec:
@@ -18,5 +18,5 @@ spec:
       nodePort: {{ .Values.service.nodePort }}
       {{- end }}
   selector:
-    app: {{ template "podinfo.name" . }}
+    app: test
     release: {{ .Release.Name }}
