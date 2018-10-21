@@ -6,10 +6,10 @@ metadata:
   namespace: test-dev
   annotations:
     flux.weave.works/automated: "true"
-    flux.weave.works/tag.test: semver:1.x.x-dev
+    flux.weave.works/tag.test: globsemver:{1.x.x}-dev
 spec:
   chartGitPath: test
   releaseName: test-dev
   values:
     test:
-      image: whitehat/http-echo:v1.0.2-dev
+      image: whitehat/http-echo:v1.0.0

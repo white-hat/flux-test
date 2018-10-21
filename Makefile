@@ -1,6 +1,6 @@
 install-flux:
 	# helm repo list | grep -q weaveworks || helm repo add weaveworks https://weaveworks.github.io/flux
-	helm upgrade --install flux weaveworks/flux \
+	helm upgrade --install flux /Users/itrushchenko/Repos/k8s/k8s-satellite/flux-chart \
 	  --namespace flux \
 		--set rbac.create=true \
 		--set git.path=flux \
