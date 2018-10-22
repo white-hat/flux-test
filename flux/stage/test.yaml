@@ -12,4 +12,4 @@ spec:
   releaseName: test-stage
   values:
     test:
-      image: whitehat/http-echo:v1.0.1-dev
+      image: whitehat/http-echo:v1.0.0
