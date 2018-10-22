@@ -6,7 +6,7 @@ metadata:
   namespace: test-stage
   annotations:
     flux.weave.works/automated: "true"
-    flux.weave.works/tag.test: globsemver:v{1.x.x}-stage
+    flux.weave.works/tag.test: glob:*-dev
 spec:
   chartGitPath: test
   releaseName: test-stage
